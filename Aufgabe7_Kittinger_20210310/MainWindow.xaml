@@ -1,0 +1,114 @@
+﻿<Window x:Class="Aufgabe7_Kittinger_20210310.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Aufgabe7_Kittinger_20210310"
+        mc:Ignorable="d"
+      Title="BruchRechnenTrainer" Height="450" Width="800">
+    <StackPanel Margin="10">
+        <StackPanel Height="200" Orientation="Horizontal">
+            <StackPanel Width="386">
+                <Label Content="Spieler"/>
+                <ComboBox x:Name="Spielerauswahl" DropDownOpened="Spielerauswahl_DropDownOpened" HorizontalAlignment="Left" Width="386">
+                    <ComboBoxItem IsSelected="True" Content="neuer Spieler"></ComboBoxItem>
+                </ComboBox>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Name" Width="150" Height="25"/>
+                    <Label Content="Alter" Width="40" Height="25" Margin="10, 0, 0, 0"/>
+                    <Label Content="Geschlecht" Width="150" Height="25" Margin="10, 0, 0, 0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="Name_TB" Width="150" Height="25"/>
+                    <TextBox x:Name="Alter_TB" Width="40" Height="25" Margin="10, 0, 0, 0"/>
+                    <RadioButton x:Name="Weiblich_RB" Margin="20,6,0,0" Width="14"/>
+                    <Label Content="♀" />
+                    <RadioButton x:Name="Maennlich_RB" Margin="5,6,0,0" Width="14"/>
+                    <Label Content="♂"/>
+                    <Button x:Name="spielerAnlegen" Content="✔" Margin="20, 0, 0, 0" Width="25" Click="spielerAnlegen_Click"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Width="386">
+                <Label Content="Bruchrechnungen" Margin="10, 0, 0, 0"/>
+                <ComboBox HorizontalAlignment="Left" Margin="10, 0, 0, 0" Width="366" >
+                    <ComboBoxItem IsSelected="True" Content="neue Bruchrechnungssammlung"/>
+                </ComboBox>
+                <StackPanel Orientation="Horizontal">
+                    <GroupBox Margin="20" Header="Zahlenraum" Height="80" Width="166">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Zähler" Margin="5, 0, 0, 0" Width="68"></Label>
+                                <Label Content="Nenner" Margin="10, 0, 0, 0"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="0 bis" Margin="5, 0, 0, 0"></Label>
+                                <ComboBox HorizontalAlignment="Left">
+                                    <ComboBoxItem IsSelected="True" Content="-"/>
+                                </ComboBox>
+                                <Label Content="1 bis" Margin="10, 0, 0, 0"></Label>
+                                <ComboBox HorizontalAlignment="Left">
+                                    <ComboBoxItem IsSelected="True" Content="-"/>
+                                </ComboBox>
+                            </StackPanel>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox  Margin="8, 20, 20, 20" Header="Operatoren" Height="80" Width="152">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,29">
+                            <CheckBox Margin="10, 7, 0, 0"></CheckBox>
+                            <Label Content="+" ></Label>
+                            <CheckBox Margin="0, 7, 0, 0"></CheckBox>
+                            <Label Content="-" ></Label>
+                            <CheckBox Margin="0, 7, 0, 0"></CheckBox>
+                            <Label Content="*" ></Label>
+                            <CheckBox Margin="0, 7, 0, 0"></CheckBox>
+                            <Label Content="/" ></Label>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="32">
+                    <Label Content="Anzahl der Rechnungen"></Label>
+                    <Slider TickFrequency="2" TickPlacement="BottomRight" Width="150" Minimum="1" Maximum="100" ></Slider>
+                    <TextBox TextAlignment="Center" Height="25" Width="25" Margin="10, 0">1</TextBox>
+                    <Button Content="✔" Height="25" Width="25" Margin="10, 0"/>
+                </StackPanel>
+
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Height="150">
+            <StackPanel Width="386">
+                <Label Content="Spiel"></Label>
+                <GroupBox Header="Rechenaufgabe" Height="121" HorizontalAlignment="Left" Width="386">
+                    <StackPanel Orientation="Horizontal">
+                        <Label FontSize="30" Margin="10, 10, 0, 10">_</Label>
+                        <Label FontSize="30" Margin="0, 10, 0, 10">/</Label>
+                        <Label FontSize="30" Margin="0, 10, 0, 10">_</Label>
+                        <Label FontSize="30" Margin="0, 10, 0, 10">?</Label>
+                        <Label FontSize="30" Margin="0, 10, 0, 10">_</Label>
+                        <Label FontSize="30" Margin="0, 10, 0, 10">/</Label>
+                        <Label FontSize="30" Margin="0, 10, 0, 10">_</Label>
+                        <Label FontSize="30" Margin="0, 10, 0, 10">=</Label>
+                        <TextBox FontSize="30" TextAlignment="Center" Margin="20,10,0,38" Height="50" Width="100">_ /_</TextBox>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+            <StackPanel Width="386">
+                <GroupBox Header="Ergebnis" Margin="0, 26, 0, 0" Height="121" HorizontalAlignment="Right" Width="376">
+                    <StackPanel HorizontalAlignment="Right" Width="374">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Zeit" Margin="10" Width="53"></Label>
+                            <Label Content="richtig" Margin="150, 10, 0, 0"></Label>
+                            <Label Content="falsch" Margin="10"></Label>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="00:00:00" Margin="10, 0, 0, 0" Width="226"/>
+                            <Label Content="0" Margin="0, 0, 0, 0" Width="53"></Label>
+                            <Label Content="0" Margin="0, 0, 0, 0"></Label>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+        </StackPanel>
+        <Button Content="Start" Height="30" Width="752" HorizontalAlignment="Left" Margin="5" ></Button>
+    </StackPanel>
+</Window>
